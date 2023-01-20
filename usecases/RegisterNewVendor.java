@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.tender.Bean.Vender;
 import com.tender.Dao.AdministratorDao;
 import com.tender.Dao.AdministratorDaoImple;
+import com.tender.Exception.VenderException;
 
 public class RegisterNewVendor {
 
@@ -29,8 +30,15 @@ public class RegisterNewVendor {
 		
 		AdministratorDao adao=new AdministratorDaoImple();
 		
-		String s=adao.registerNewVendor(v);
-		System.out.println(s);
+		String s;
+		try {
+			s = adao.registerNewVendor(v);
+			System.out.println(s);
+		} catch (VenderException e) {
+			System.out.println(e.getMessage());
+			
+		}
+		
 
 	}
 
