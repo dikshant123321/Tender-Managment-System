@@ -11,13 +11,15 @@ import com.mysql.cj.xdevapi.PreparableStatement;
 import com.tender.Bean.Bidder;
 import com.tender.Bean.Tender;
 import com.tender.Bean.Vender;
+import com.tender.Exception.TenderException;
+import com.tender.Exception.VenderException;
 import com.tender.Utility.DButility;
 
 public class AdministratorDaoImple implements AdministratorDao{
 
 //==============================RegisterNewVendor================================================================
 	@Override
-	public String registerNewVendor(Vender vender) {
+	public String registerNewVendor(Vender vender)throws VenderException{
 		String message="Vender Not Register....";
 		try(Connection conn=DButility.DBconnection()){
 			PreparedStatement ps=conn.prepareStatement("insert into vender values(?,?,?,?,?)");
@@ -32,15 +34,20 @@ public class AdministratorDaoImple implements AdministratorDao{
 			{
 				message="Vender Register Successful....";
 			}
+			else
+			{
+				throw new VenderException("Please provide Correct Information of vender");
+			}
+			
 
 		} catch (SQLException e) {
-			e.getMessage();
+			throw new VenderException(e.getMessage());
 		}
 		return message;
 	}
 //=========================================viewallthevendors=========================================================
 	@Override
-	public List<Vender> viewallthevendors() {
+	public List<Vender> viewallthevendors()throws VenderException {
 		List<Vender> list=new ArrayList<>();
 		try(Connection conn=DButility.DBconnection()){
 			PreparedStatement ps=conn.prepareStatement("select * from vender");
@@ -54,12 +61,15 @@ public class AdministratorDaoImple implements AdministratorDao{
 				String email=rs.getString("email");
 				Vender vender=new Vender(id, username, password, address, email);
 				list.add(vender);
-				
-				
+		
+			}
+			if(list.isEmpty())
+			{
+				throw new VenderException("Venders Does't Exist,please Try after Some Time!!!.");
 			}
 			
 		} catch (SQLException e) {
-		   e.getMessage();
+			throw new VenderException(e.getMessage());
 		}
 		
 		
@@ -69,7 +79,7 @@ public class AdministratorDaoImple implements AdministratorDao{
 	
 //	============================createNewTender=============================================
 	@Override
-	public String createNewTender(Tender tender) {
+	public String createNewTender(Tender tender) throws TenderException {
 		String message="Opps...Tender not created! Please Try Again ";
 		
 		try(Connection conn=DButility.DBconnection()){
@@ -84,8 +94,13 @@ public class AdministratorDaoImple implements AdministratorDao{
 			{
 			   message="Tender created..";
 			}
+			else
+			{
+				throw new  TenderException("Please Enter Correct Information...!");
+			}
 		} catch (SQLException e) {
-			e.getMessage();
+			throw new  TenderException(e.getMessage());
+			
 		}
 		return message;
 		
@@ -93,7 +108,7 @@ public class AdministratorDaoImple implements AdministratorDao{
 	
 //	=====================================ViewAlltheTenders========================================================
 	@Override
-	public List<Tender> ViewAlltheTenders() {
+	public List<Tender> ViewAlltheTenders() throws TenderException{
 		List<Tender> list=new ArrayList<>();
 		try(Connection conn=DButility.DBconnection()){
 			PreparedStatement ps=conn.prepareStatement("select * from tender");
@@ -110,15 +125,20 @@ public class AdministratorDaoImple implements AdministratorDao{
 				
 				
 			}
+			if(list.isEmpty())
+			{
+				throw new TenderException("Tender Doesn't exist.." );
+			}
 		} catch (SQLException e) {
-		      e.getMessage();
+			throw new TenderException( e.getMessage());
+		    
 		}
 		return list;
 	}
 	
 //	============================================ViewAlltheBidsoftender==========================================
 	@Override
-	public List<Bidder> ViewAlltheBidsoftender(int tid) {
+	public List<Bidder> ViewAlltheBidsoftender(int tid) throws TenderException{
 		List<Bidder> bidder=new ArrayList<>();
 		try(Connection conn=DButility.DBconnection()){
 			PreparedStatement ps=conn.prepareStatement("select * from bidder where  tid=?");
@@ -138,10 +158,15 @@ public class AdministratorDaoImple implements AdministratorDao{
 				
 
 			}
+			if(bidder.isEmpty())
+			{
+				throw new TenderException("Bidder with this Tender ID doen't exist !!!");
+			}
 			
 			
 		} catch (SQLException e) {
-			e.getMessage();
+			throw new TenderException(e.getMessage());
+			
 		}
 		
 		return bidder;
@@ -149,8 +174,8 @@ public class AdministratorDaoImple implements AdministratorDao{
 	
 //	================================Assigntendertovendor=======================================================
 	@Override
-	public String Assigntendertovendor(int vid, int tid) {
-		String message="Not Assin tender to vender   !!!!";
+	public String Assigntendertovendor(int vid, int tid)throws VenderException{
+		String message="Not Assign tender to vender   !!!!";
 		try(Connection conn=DButility.DBconnection()){
           PreparedStatement ps = conn.prepareStatement("update bidder set bstatus = 'selected' where vid=? AND tid=?");
 			ps.setInt(1, vid);
@@ -159,9 +184,13 @@ public class AdministratorDaoImple implements AdministratorDao{
 			if(x>0) {
 				message= "Tender assigned successfully...";
 			}
-			
+			else
+			{
+				throw new VenderException("Enter Correct Vender id And Tender ID !.. ");
+			}
 		} catch (Exception e) {
-			e.getMessage();
+			throw new VenderException(e.getMessage());
+			
 		}
 		
 		

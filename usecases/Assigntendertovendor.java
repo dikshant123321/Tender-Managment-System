@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.tender.Dao.AdministratorDao;
 import com.tender.Dao.AdministratorDaoImple;
+import com.tender.Exception.VenderException;
 
 public class Assigntendertovendor {
 
@@ -15,8 +16,15 @@ public class Assigntendertovendor {
 		int tid=scn.nextInt();
 		
 		AdministratorDao dao=new AdministratorDaoImple();
-		String str=dao.Assigntendertovendor(vid, tid);
-		System.out.println(str);
+		String str;
+		try {
+			str = dao.Assigntendertovendor(vid, tid);
+			System.out.println(str);
+		} catch (VenderException e) {
+			System.out.println(e.getMessage());
+		
+		}
+		
 
 	}
 

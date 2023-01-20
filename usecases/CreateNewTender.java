@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.tender.Bean.Tender;
 import com.tender.Dao.AdministratorDao;
 import com.tender.Dao.AdministratorDaoImple;
+import com.tender.Exception.TenderException;
 
 public class CreateNewTender {
 
@@ -23,8 +24,15 @@ public class CreateNewTender {
 		
 		Tender tender=new Tender(tid, username, type, price, location);
 		AdministratorDao dao=new AdministratorDaoImple();
-		String str=dao.createNewTender(tender);
-		System.out.println(str);
+		String str;
+		try {
+			str = dao.createNewTender(tender);
+			System.out.println(str);
+		} catch (TenderException e) {
+			System.out.println(e.getMessage());
+			
+		}
+		
 
 	}
 
