@@ -6,6 +6,7 @@ import com.tender.Bean.Vender;
 import com.tender.Dao.AdministratorDao;
 import com.tender.Dao.AdministratorDaoImple;
 import com.tender.Exception.VenderException;
+import com.tender.customs.ConsoleColors;
 
 public class RegisterNewVendor {
 
@@ -14,16 +15,16 @@ public class RegisterNewVendor {
 		System.out.print("Enter Vender id : ");
 		int id=scn.nextInt();
 		
-		System.out.print("Enter venter Username : ");
+		System.out.print("Enter vender Username : ");
 		String username=scn.next();
 		
-		System.out.print("Enter venter Password : ");
+		System.out.print("Enter vender Password : ");
 		String password=scn.next();
 		
-		System.out.print("Enter venter Address : ");
+		System.out.print("Enter vender Address : ");
 		String Address=scn.next();
 		
-		System.out.print("Enter venter Email Address : ");
+		System.out.print("Enter vender Email Address : ");
 		String email=scn.next();
 		
 		Vender v=new Vender(id, username, password, Address, email);
@@ -33,9 +34,11 @@ public class RegisterNewVendor {
 		String s;
 		try {
 			s = adao.registerNewVendor(v);
-			System.out.println(s);
+			System.out.println();
+			System.out.println(ConsoleColors.GREEN_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT+s+ConsoleColors.RESET);
 		} catch (VenderException e) {
-			System.out.println(e.getMessage());
+			System.out.println();
+			System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.WHITE_BOLD_BRIGHT+e.getMessage()+ConsoleColors.RESET);
 			
 		}
 		

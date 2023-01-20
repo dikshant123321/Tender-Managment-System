@@ -105,7 +105,7 @@ public class VenderDaoImple implements VenderDao{
 		String message="Bidding failed ";
 		
 		try(Connection conn=DButility.DBconnection()){
-			 PreparedStatement ps=conn.prepareStatement("select * from bidder where id=?");
+			 PreparedStatement ps=conn.prepareStatement("select * from bidder where tid=?");
 			 ps.setInt(1, bidder.getTid());
 			ResultSet rs= ps.executeQuery();
 			if(!rs.next())
