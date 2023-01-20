@@ -7,7 +7,7 @@ import com.tender.Dao.AdministratorDao;
 import com.tender.Dao.AdministratorDaoImple;
 import com.tender.Exception.VenderException;
 
-public class Vewallthevendors {
+public class Viewallthevendors {
 
 	public static void main(String[] args) {
 		AdministratorDao dao=new AdministratorDaoImple();
