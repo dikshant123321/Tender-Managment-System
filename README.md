@@ -46,7 +46,7 @@ B. The Features of Vendor
 
 - Java
 - MySQL
-- Git & GitHub
+- GitHub
 
 
 
