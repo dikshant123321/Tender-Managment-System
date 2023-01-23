@@ -104,4 +104,4 @@ B. The Features of Vendor
 #### Dikshant Deogade
 >[GitHub](https://github.com/dikshant123321)
 
-# 👉 [Click here](https://dri.google.com/) to go through detail explanation of this application.
+# 👉 [Click here](https://drive.google.com/file/d/1aBYWeoM798ubbBZ2rPnJPkYJMPcl15gu/view?usp=sharing) to go through detail explanation of this application.
