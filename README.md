@@ -24,7 +24,7 @@
 A. The Features of Administrator  
 
 1. Login with his account.
-2. Register new Vendor. (assign a new username and password to him)
+2. Register new Vendor.
 3. View all the vendors.
 4. Create new tenders.
 5. View All the Tenders.
@@ -33,10 +33,10 @@ A. The Features of Administrator
 
 B. The Features of Vendor
 
-1. Login with his account (username and password given by admin)
+1. Login with his account.
 1. View all the current Tenders.
 2. Place a Bid against a Tender.
-3. View status of a Bid(Whether Selected or Not)
+3. View status of a Bid.
 4. View his own Bid History.
 
 
@@ -50,11 +50,7 @@ B. The Features of Vendor
 
 
 
-# What I Learn 
 
-- Establishing Connection of java and JDBC.
-- Exception Handaling.
-- Enjoyed the process of learning and creating the application.
 
 
 
