@@ -59,7 +59,7 @@ B. The Features of Vendor
 ## **ER Diagram**
 
 <p align="center">
-  <img width="700" height="500" src="https://github.com/dikshant123321/SB101_Project_Images/blob/main/erDiagram.png?raw=true">
+  <img width="700" height="500" src="https://github.com/dikshant123321/Tender-Managment-System/blob/main/SB101_Project_Images-main/erDiagram.png?raw=true">
 </p>
 
 
@@ -70,22 +70,22 @@ B. The Features of Vendor
 
 ##  Home Page :-
 <p align="center">
-  <img width="500" height="300" src="https://github.com/dikshant123321/SB101_Project_Images/blob/main/HomePage.png?raw=true">
+  <img width="500" height="300" src="https://github.com/dikshant123321/Tender-Managment-System/blob/main/SB101_Project_Images-main/HomePage.png?raw=true">
 </p>
 
 ## Role of Administrator :- 
 <p align="center">
-  <img width="500" height="300" src="https://github.com/dikshant123321/SB101_Project_Images/blob/main/Admin%20Dashboard.png?raw=true">
+  <img width="500" height="300" src="https://github.com/dikshant123321/Tender-Managment-System/blob/main/SB101_Project_Images-main/Admin%20Dashboard.png?raw=true">
 </p>
 
 ## Role of Vender :- 
 <p align="center">
-  <img width="500" height="300" src="https://github.com/dikshant123321/SB101_Project_Images/blob/main/vender%20Dash%20Board.png?raw=true">
+  <img width="500" height="300" src="https://github.com/dikshant123321/Tender-Managment-System/blob/main/SB101_Project_Images-main/vender%20Dash%20Board.png?raw=true">
 </p>
 
 ##  Place a Bid against a Tender :-
 <p align="center">
-  <img width="500" height="400" src="https://github.com/dikshant123321/SB101_Project_Images/blob/main/Screenshot%20(373).png?raw=true">
+  <img width="500" height="400" src="https://github.com/dikshant123321/Tender-Managment-System/blob/main/SB101_Project_Images-main/Screenshot%20(373).png?raw=true">
 </p>
 
 
